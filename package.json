@@ -1,0 +1,37 @@
+{
+  "name": "hot-webrex",
+  "version": "1.0.0",
+  "description": "A barebone boilerplate to start a new app with Webpack, React, and Express stack",
+  "main": "build/server",
+  "scripts": {
+    "clean": "rm -rf build",
+    "build": "npm run clean && webpack",
+    "build-local": "npm run clean && webpack",
+    "local": "npm run build-local && npm run start",
+    "start": "NODE_ENV=production npm run build && node build/server"
+  },
+  "keywords": [
+    "react-hot-boilerplate",
+    "express-webpack-react-hot",
+    "express-webpack-dev-server-hot"
+  ],
+  "author": "backyardcoder",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "nodemon-webpack-plugin": "^4.0.3",
+    "react-hot-loader": "^4.3.4",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
