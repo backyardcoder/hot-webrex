@@ -1,6 +1,7 @@
+import React from 'react';
 import express from 'express';
 import Markup from './Markup';
-import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 import runWDS from '../../webpack/wds';
 
 const App = express();
@@ -9,7 +10,7 @@ App.use('/assets', express.static('build/client'));
 App.get('/', (_, res) => {
 	res.status(200).send(`
 		<!DOCTYPE html>
-		${ ReactDOM.renderToStaticMarkup(<Markup/>) }
+		${ ReactDOMServer.renderToStaticMarkup(<Markup/>) }
 	`);
 });
 
