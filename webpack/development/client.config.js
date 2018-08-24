@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
 const basePath = path.resolve(__dirname, '../../');
 const buildPath = path.resolve(basePath, 'build');
@@ -9,6 +9,7 @@ export default {
 	watch: true,
 	target: 'web',
 	mode: 'development',
+	devtool: 'source-map',
 	entry: './src/client',
 	output: {
 		publicPath: outputPublicPath,
@@ -21,6 +22,26 @@ export default {
 				test: /\.jsx?/,
 				exclude: /node_modules/,
 				loader: 'babel-loader'
+			},
+			{
+				test: /\.(sa|sc|c)ss$/,
+				loader: [
+					{
+						loader: 'style-loader'
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
+					},
+					{
+						loader: 'sass-loader', 
+						options: {
+							sourceMap: true
+						}
+					}
+				]
 			}
 		]
 	},
