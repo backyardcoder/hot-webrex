@@ -1,5 +1,4 @@
 const basePath = process.env.NODE_ENV || 'development';
-
 const clientsExports = require(`./${basePath}/client.config.js`);
 const serverConfig = require(`./${basePath}/server.config.js`).default;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import express from 'express';
 import Markup from './Markup';
-import ReactDOMServer from 'react-dom/server';
 import runWDS from '../../webpack/wds';
+import ReactDOMServer from 'react-dom/server';
 
 const App = express();
 App.use('/assets', express.static('build/client'));
