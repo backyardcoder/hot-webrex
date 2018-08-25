@@ -5,6 +5,7 @@
   "main": "build/server",
   "scripts": {
     "clean": "rm -rf build",
+    "prettier": "prettier --write '**/*.js' --config .prettierrc.json",
     "build": "npm run clean && webpack",
     "build-local": "npm run clean && webpack",
     "local": "npm run build-local && npm run start",
@@ -31,6 +32,7 @@
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
     "nodemon-webpack-plugin": "^4.0.3",
+    "prettier": "1.14.2",
     "react-hot-loader": "^4.3.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
