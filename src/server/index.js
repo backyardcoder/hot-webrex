@@ -6,19 +6,18 @@ import runWDS from '../../webpack/wds';
 
 const App = express();
 App.use('/assets', express.static('build/client'));
-	
+
 App.get('/', (_, res) => {
-	res.status(200).send(`
+  res.status(200).send(`
 		<!DOCTYPE html>
-		${ ReactDOMServer.renderToStaticMarkup(<Markup/>) }
+		${ReactDOMServer.renderToStaticMarkup(<Markup />)}
 	`);
 });
 
 App.listen(3000, () => {
-	console.info('[express]: App started on: ', 3000);
-	
-	if (ENV === 'development') {
-		runWDS();
-	}
+  console.info('[express]: App started on: ', 3000);
 
+  if (ENV === 'development') {
+    runWDS();
+  }
 });
