@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import proxyquire from 'proxyquire';
+proxyquire.noPreserveCache();
 
 describe('Markup Component', () => {
   let wrapper, Markup;
@@ -38,9 +39,6 @@ describe('Markup Component', () => {
 
   describe('development environment', () => {
     beforeEach(() => {
-      Markup = proxyquire('../../src/server/Markup', {
-        '../../webpack': proxyquire('../../webpack', {})
-      }).default;
       wrapper = shallow(<Markup />);
     });
     it('should not render a stylesheet tag', () => {
@@ -64,7 +62,7 @@ describe('Markup Component', () => {
     beforeEach(() => {
       process.env.NODE_ENV = 'production';
       Markup = proxyquire('../../src/server/Markup', {
-        '../../webpack': proxyquire('../../webpack', {})
+        '../../webpack': require('../../webpack')
       }).default;
       wrapper = shallow(<Markup />);
     });
