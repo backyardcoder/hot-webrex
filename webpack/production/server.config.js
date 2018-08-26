@@ -1,5 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
 import NodeExternals from 'webpack-node-externals';
 
 const basePath = path.resolve(__dirname, '../../');
@@ -14,11 +13,6 @@ export default {
     path: path.resolve(buildPath, 'server')
   },
   externals: [NodeExternals()],
-  plugins: [
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify('produciton')
-    })
-  ],
   module: {
     rules: [
       {

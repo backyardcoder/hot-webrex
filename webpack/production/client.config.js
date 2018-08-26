@@ -1,5 +1,7 @@
 import path from 'path';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 const basePath = path.resolve(__dirname, '../../');
 const buildPath = path.resolve(basePath, 'build');
@@ -10,6 +12,7 @@ export default {
   target: 'web',
   mode: 'production',
   entry: './src/client',
+  devtool: 'source-map',
   output: {
     publicPath: '/assets/',
     filename: 'client.bundle.js',
@@ -43,6 +46,14 @@ export default {
           enforce: true
         }
       }
-    }
+    },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   }
 };

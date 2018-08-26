@@ -12,7 +12,7 @@ const Markup = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>New App</title>
-        {ENV !== 'development' && (
+        {process.env.NODE_ENV !== 'development' && (
           <link rel="stylesheet" href={`${publicPath}${cssFileName}`} />
         )}
       </head>
