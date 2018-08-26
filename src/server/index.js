@@ -17,7 +17,7 @@ App.get('/', (_, res) => {
 App.listen(3000, () => {
   console.info('[express]: App started on: ', 3000);
 
-  if (ENV === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     runWDS();
   }
 });

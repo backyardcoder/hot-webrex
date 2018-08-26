@@ -1,5 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import NodeExternals from 'webpack-node-externals';
 
@@ -15,12 +14,7 @@ export default {
     path: path.resolve(buildPath, 'server')
   },
   externals: [NodeExternals()],
-  plugins: [
-    new NodemonPlugin(),
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify('development')
-    })
-  ],
+  plugins: [new NodemonPlugin()],
   module: {
     rules: [
       {

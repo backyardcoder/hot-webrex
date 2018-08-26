@@ -9,8 +9,8 @@ export default {
   watch: true,
   target: 'web',
   mode: 'development',
-  devtool: 'source-map',
   entry: './src/client',
+  devtool: 'inline-source-map',
   output: {
     publicPath: outputPublicPath,
     filename: 'client.bundle.js',

@@ -7,7 +7,6 @@ describe('Markup Component', () => {
   let wrapper, Markup;
   beforeEach(() => {
     process.env.NODE_ENV = 'development';
-    global.ENV = 'development';
     Markup = proxyquire('../../src/server/Markup', {
       '../../webpack': require('../../webpack')
     }).default;
@@ -63,7 +62,6 @@ describe('Markup Component', () => {
 
   describe('production environment', () => {
     beforeEach(() => {
-      global.ENV = 'production';
       process.env.NODE_ENV = 'production';
       Markup = proxyquire('../../src/server/Markup', {
         '../../webpack': proxyquire('../../webpack', {})
